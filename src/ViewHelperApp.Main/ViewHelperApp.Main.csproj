@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Manifests\RevitAppManifest.addin"/>
+    <Content Include="Manifests\ViewHelperApp.addin" />
 
     <Content Include="Properties\launchSettings.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -31,9 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ViewHelperApp.Core\ViewHelperApp.Core.csproj"/>
-    <ProjectReference Include="..\ViewHelperApp.UI\ViewHelperApp.UI.csproj"/>
-    <ProjectReference Include="..\ViewHelperApp.Web\ViewHelperApp.Web.csproj"/>
+    <ProjectReference Include="..\ViewHelperApp.Core\ViewHelperApp.Core.csproj" />
+    <ProjectReference Include="..\ViewHelperApp.UI\ViewHelperApp.UI.csproj" />
+    <ProjectReference Include="..\ViewHelperApp.Web\ViewHelperApp.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>

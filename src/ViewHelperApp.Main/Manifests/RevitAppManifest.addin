@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+   <FullClassName>ViewHelperApp.Main.App</FullClassName>
+   <ClientId>87bcf970-71e8-49db-9099-2886682c1bfc</ClientId>
+   <Name>View Helper</Name>
+   <Assembly>ViewHelperApp.Main.dll</Assembly>
+   <VendorId>RusRa</VendorId>
+ </AddIn>
+</RevitAddIns>
+

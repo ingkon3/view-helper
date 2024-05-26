@@ -35,6 +35,10 @@ namespace ViewHelperApp.Main
             {
                 uiApp.CreateRibbonTab(ribbonTabName);
             }
+            catch (Autodesk.Revit.Exceptions.ArgumentException ex)
+            {
+                //Ignore if ribbon tab is already exist
+            }
             catch
             {
                 TaskDialog.Show("Error", $"Failed to create the following '{ribbonTabName}' ribbon.");

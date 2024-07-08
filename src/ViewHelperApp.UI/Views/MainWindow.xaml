@@ -70,12 +70,40 @@
       </Style>
     </ResourceDictionary>
   </Window.Resources>
-  <StackPanel>
+  <DockPanel>
+    <StackPanel DockPanel.Dock="Top">
+
     <TextBlock HorizontalAlignment="Center"
                VerticalAlignment="Center"
                FontSize="15"
                Text="{Binding SomeText}" />
 
     
+
+    
   </StackPanel>
+
+    <StatusBar DockPanel.Dock="Bottom">
+      <StatusBarItem>
+        <TextBlock Text="123"/>
+      </StatusBarItem>
+      <StatusBarItem>
+        <ProgressBar Height="10" Width="100" Value="30">
+        </ProgressBar>
+      </StatusBarItem>
+    </StatusBar>
+
+    <StackPanel DockPanel.Dock="Top">
+
+      <TextBlock HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="15"
+               Text="{Binding SomeText}" />
+
+
+
+
+    </StackPanel>
+
+  </DockPanel>
 </Window>

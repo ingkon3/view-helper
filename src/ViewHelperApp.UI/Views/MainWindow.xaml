@@ -68,9 +68,122 @@
           </Setter.Value>
         </Setter>
       </Style>
+      
+      <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+      <Style x:Key="ButtonStyleWithoutAnimation" TargetType="Button">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Button">
+              <Border Name="Border"
+                      BorderThickness="1"
+                      BorderBrush="Transparent"
+                      Background="{TemplateBinding Background}">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                  <Setter TargetName="Border" Property="BorderBrush" Value="Transparent" />
+                </Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <!-- End style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+
+      <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect Black color-->
+      <Style x:Key="ButtonStyleWithoutAnimationBlack" TargetType="Button">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Background" Value="Black" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Button">
+              <Border Name="Border"
+                  BorderThickness="1"
+                  BorderBrush="Black"
+                  CornerRadius="6"
+                  Background="Black">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                  <Setter TargetName="Border" Property="Background" Value="White" />
+                  <Setter Property="Foreground" Value="Black" />
+                </Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <!-- End style is used for buttons Black color-->
+
+
+
+
     </ResourceDictionary>
   </Window.Resources>
   <DockPanel>
+    <DockPanel DockPanel.Dock="Top" Background="Black">
+      <Button x:Name="CloseButton"
+              DockPanel.Dock="Right"
+              Width="40" Height="40"
+              HorizontalAlignment="Right"
+              Style="{StaticResource ButtonStyleWithoutAnimationBlack}">
+        <Button.Content>
+          <Path Data="M 0,0 L 20,20 M 0,20 L 20,0"
+                Stroke="White"
+                SnapsToDevicePixels="False"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        </Button.Content>
+      </Button>
+      
+      <Button x:Name="MaximizeWindowButton"
+              DockPanel.Dock="Right"
+              Width="40" Height="40"
+              HorizontalAlignment="Right"
+              Style="{StaticResource ButtonStyleWithoutAnimationBlack}">
+        <Button.Content>
+          <Path Data="M 0,0 L 20,0 L 20,20 L 0,20 Z"
+                Stroke="White"
+                SnapsToDevicePixels="False"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        </Button.Content>
+      </Button>
+
+      <Button x:Name="MinimizeWindowButton"
+              DockPanel.Dock="Right"
+              Width="40" Height="40"
+              HorizontalAlignment="Right"
+              Style="{StaticResource ButtonStyleWithoutAnimationBlack}">
+        <Button.Content>
+          <Path Data="M 0,20 L 20,20"
+                Stroke="White"
+                SnapsToDevicePixels="False"
+                HorizontalAlignment="Center"/>
+        </Button.Content>
+      </Button>
+      
+      <Image DockPanel.Dock="Left"
+             Source="image.png"
+             Height="20"
+             HorizontalAlignment="Left"
+             VerticalAlignment="Center"
+             Margin="10 1 1 1"/>
+
+      <TextBlock DockPanel.Dock="Left"
+             Text="{Binding Title}"
+             Foreground="White"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+             FontSize="20"
+             FontWeight="Bold">
+      </TextBlock>
+    </DockPanel>
+    
     <StackPanel DockPanel.Dock="Top">
 
     <TextBlock HorizontalAlignment="Center"

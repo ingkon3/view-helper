@@ -1,10 +1,17 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using ViewHelperApp.UI.ViewModels.Base;
 
 namespace ViewHelperApp.UI.ViewModels;
 
-public class MainWindowViewModel : INotifyPropertyChanged
+public class MainWindowViewModel : ViewModelBase
 {
+    public MainWindowViewModel()
+    {
+        _title += _version;
+        SomeText = "Hello!";
+    }
+
     private string _someText;
     public string SomeText
     {
@@ -24,28 +31,25 @@ public class MainWindowViewModel : INotifyPropertyChanged
 
     public string Status
     {
-        get { return _status; }
-        set
-        {
-            _status = value;
-            OnPropertyChanged();
-        }
+        get => _status;
+        set => Set(ref _status, value);
     }
 
+    /// <summary>Title for MainWindow</summary>
+    private string _title = "VIEW HELPER";
 
-    public MainWindowViewModel()
+    public string Title
     {
-        SomeText = "Hello!";
+        get =>_title;
+        set => Set(ref _title, value);
     }
 
-    #region PropertyChanged
+    private string _version = "1.0.0";
 
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    public string Version
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        get => _version;
+        set => Set(ref _version, value);
     }
 
-    #endregion
 }

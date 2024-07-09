@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ViewHelperApp.UI.ViewModels;
@@ -18,6 +18,20 @@ public class MainWindowViewModel : INotifyPropertyChanged
             OnPropertyChanged();
         }
     }
+
+    /// <summary>Status for Status Bar </summary>
+    private string _status = "Done!";
+
+    public string Status
+    {
+        get { return _status; }
+        set
+        {
+            _status = value;
+            OnPropertyChanged();
+        }
+    }
+
 
     public MainWindowViewModel()
     {

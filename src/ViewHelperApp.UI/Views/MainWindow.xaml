@@ -85,7 +85,7 @@
 
     <StatusBar DockPanel.Dock="Bottom">
       <StatusBarItem>
-        <TextBlock Text="123"/>
+        <TextBlock Text="{Binding Status}"/>
       </StatusBarItem>
       <StatusBarItem>
         <ProgressBar Height="10" Width="100" Value="30">

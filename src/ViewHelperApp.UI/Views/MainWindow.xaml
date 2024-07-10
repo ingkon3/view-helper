@@ -8,8 +8,12 @@
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
         Title="MainWindow"
-        Height="450"
-        Width="800">
+        Height="740" Width="700" MinHeight="740" MinWidth="700"
+        Topmost="True"
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        x:Name="MainWindowInstance">
   <Window.Style>
     <Style TargetType="Window">
       <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
@@ -126,6 +130,9 @@
   </Window.Resources>
   <DockPanel>
     <DockPanel DockPanel.Dock="Top" Background="Black">
+      <DockPanel.InputBindings>
+        
+      </DockPanel.InputBindings>
       <Button x:Name="CloseButton"
               DockPanel.Dock="Right"
               Width="40" Height="40"
@@ -191,9 +198,6 @@
                FontSize="15"
                Text="{Binding SomeText}" />
 
-    
-
-    
   </StackPanel>
 
     <StatusBar DockPanel.Dock="Bottom">

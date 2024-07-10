@@ -1,6 +1,7 @@
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using Autodesk.Revit.UI;
 using ViewHelperApp.UI.ViewModels.Base;
+using TaskDialog = Autodesk.Revit.UI.TaskDialog;
 
 namespace ViewHelperApp.UI.ViewModels;
 
@@ -51,5 +52,47 @@ public class MainWindowViewModel : ViewModelBase
         get => _version;
         set => Set(ref _version, value);
     }
+
+
+    //----------------------------------Methods-----------------------------------
+
+
+
+    //----------------------------------Events-----------------------------------
+
+    #region  Close, Hide, Show events for window
+
+    public event EventHandler CloseRequest;
+    private void RaiseCloseRequest()
+    {
+        CloseRequest?.Invoke(this, EventArgs.Empty);
+    }
+    public event EventHandler HideRequest;
+    private void RaiseHideRequest()
+    {
+        HideRequest?.Invoke(this, EventArgs.Empty);
+    }
+    public event EventHandler ShowRequest;
+    private void RaiseShowRequest()
+    {
+        ShowRequest?.Invoke(this, EventArgs.Empty);
+    }
+
+
+    
+    #endregion
+
+    #region CloseAplication
+
+    public ICommand CloseApplicationCommand { get; }
+    private bool CanCloseApplicationCommandExecute(object p) => true;
+    private void OnCloseApplicationCommandExecuted(object p)
+    {
+        //TODO: command for close application
+    }
+
+    #endregion
+
+    //----------------------------------Commands----------------------------------
 
 }

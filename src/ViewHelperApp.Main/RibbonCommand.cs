@@ -38,6 +38,9 @@ namespace ViewHelperApp.Main
                 Owner = RevitWindowHandler.GetRevitWindow()
             };
 
+            mainWindowViewModel.CloseRequest += (s, e) => window.Close();
+            mainWindowViewModel.HideRequest += (s, e) => window.Hide();
+            mainWindowViewModel.ShowRequest += (s, e) => window.Show();
             window.Show();
 
             return Result.Succeeded;
